@@ -3,140 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jumpy Bird - Politique de confidentialité</title>
+    <title>Jumpy Bird - Saute de nuage en nuage !</title>
+    <meta name="description" content="Jumpy Bird est un jeu de plateforme mobile fun et addictif. Saute de nuage en nuage, bats ton record et explore 10 niveaux uniques !">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f4f8; color: #333; line-height: 1.7; }
-        header { background: linear-gradient(135deg, #4fc3f7, #29b6f6); padding: 40px 20px; text-align: center; color: white; }
-        header h1 { font-size: 2em; margin-bottom: 5px; }
-        header p { opacity: 0.9; font-size: 1.1em; }
-        .container { max-width: 800px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-        .card h2 { color: #29b6f6; margin-bottom: 15px; font-size: 1.3em; }
-        .card p, .card li { margin-bottom: 10px; }
-        .card ul { padding-left: 20px; }
-        footer { text-align: center; padding: 30px; color: #999; font-size: 0.9em; }
-        a { color: #29b6f6; }
-        .lang-switch { text-align: right; margin-bottom: 10px; }
-        .lang-switch a { cursor: pointer; text-decoration: none; padding: 5px 10px; border-radius: 5px; background: #e3f2fd; }
-        .en { display: none; }
+        body { font-family: 'Nunito', sans-serif; background: #1a1a2e; color: #eee; overflow-x: hidden; }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #87CEEB 0%, #b8e6ff 40%, #f0f8ff 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 40px 20px; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+            background: linear-gradient(transparent, #1a1a2e);
+        }
+
+        /* Clouds animation */
+        .cloud {
+            position: absolute; background: white; border-radius: 50px; opacity: 0.6;
+            animation: drift linear infinite;
+        }
+        .cloud:nth-child(1) { width: 200px; height: 60px; top: 10%; left: -200px; animation-duration: 25s; }
+        .cloud:nth-child(2) { width: 150px; height: 45px; top: 25%; left: -150px; animation-duration: 35s; animation-delay: 5s; }
+        .cloud:nth-child(3) { width: 180px; height: 55px; top: 50%; left: -180px; animation-duration: 30s; animation-delay: 10s; opacity: 0.4; }
+        .cloud:nth-child(4) { width: 120px; height: 36px; top: 70%; left: -120px; animation-duration: 40s; animation-delay: 2s; opacity: 0.3; }
+
+        @keyframes drift { to { left: 110%; } }
+
+        .hero-title {
+            font-family: 'Fredoka One', cursive; font-size: 4em; color: #ff6b35;
+            text-shadow: 3px 3px 0 #e55a2b, 6px 6px 0 rgba(0,0,0,0.1);
+            margin-bottom: 10px; position: relative; z-index: 1;
+        }
+        .hero-subtitle {
+            font-size: 1.4em; color: #2c5f7c; font-weight: 600;
+            margin-bottom: 40px; position: relative; z-index: 1;
+        }
+        .hero-bird {
+            font-size: 6em; position: relative; z-index: 1;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .cta-button {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: #34a853; color: white; text-decoration: none;
+            padding: 16px 36px; border-radius: 50px; font-size: 1.2em; font-weight: 700;
+            box-shadow: 0 4px 20px rgba(52,168,83,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative; z-index: 1; margin-top: 30px;
+        }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(52,168,83,0.5); }
+        .cta-button svg { width: 28px; height: 28px; }
+
+        /* FEATURES */
+        .features {
+            padding: 80px 20px; max-width: 1100px; margin: 0 auto;
+        }
+        .features h2 {
+            font-family: 'Fredoka One', cursive; font-size: 2.2em; text-align: center;
+            color: #ff6b35; margin-bottom: 50px;
+        }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px; padding: 35px 25px; text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); }
+        .feature-icon { font-size: 3em; margin-bottom: 15px; }
+        .feature-card h3 { font-size: 1.3em; margin-bottom: 10px; color: #4fc3f7; }
+        .feature-card p { color: #aaa; line-height: 1.6; }
+
+        /* LEVELS */
+        .levels {
+            padding: 80px 20px; background: rgba(255,255,255,0.02);
+        }
+        .levels h2 {
+            font-family: 'Fredoka One', cursive; font-size: 2.2em; text-align: center;
+            color: #ff6b35; margin-bottom: 50px;
+        }
+        .levels-scroll {
+            display: flex; gap: 20px; overflow-x: auto; padding: 20px;
+            max-width: 1100px; margin: 0 auto;
+            scrollbar-width: thin; scrollbar-color: #ff6b35 transparent;
+        }
+        .level-chip {
+            flex-shrink: 0; padding: 15px 25px; border-radius: 15px;
+            font-weight: 700; font-size: 0.95em; white-space: nowrap;
+            border: 2px solid rgba(255,255,255,0.15);
+        }
+        .level-chip span { display: block; font-size: 0.8em; font-weight: 400; opacity: 0.7; margin-top: 4px; }
+
+        /* FOOTER */
+        footer {
+            text-align: center; padding: 40px 20px; color: #666;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        footer a { color: #4fc3f7; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { margin: 0 15px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.5em; }
+            .hero-subtitle { font-size: 1.1em; }
+            .hero-bird { font-size: 4em; }
+            .features h2, .levels h2 { font-size: 1.6em; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Jumpy Bird</h1>
-        <p class="fr">Politique de confidentialit&eacute;</p>
-        <p class="en">Privacy Policy</p>
-    </header>
 
-    <div class="container">
-        <div class="lang-switch">
-            <a onclick="toggleLang()">EN / FR</a>
-        </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
 
-        <!-- FRENCH -->
-        <div class="fr">
-            <div class="card">
-                <h2>Introduction</h2>
-                <p>Jumpy Bird est un jeu mobile gratuit. Nous respectons votre vie priv&eacute;e et nous engageons &agrave; prot&eacute;ger vos donn&eacute;es personnelles.</p>
+        <div class="hero-bird">&#x1F426;</div>
+        <h1 class="hero-title">Jumpy Bird</h1>
+        <p class="hero-subtitle">Saute de nuage en nuage. Bats ton record !</p>
+
+        <a href="#" class="cta-button">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+            Google Play
+        </a>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <h2>Pourquoi Jumpy Bird ?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&#x2601;&#xFE0F;</div>
+                <h3>Mode Infini</h3>
+                <p>Saute le plus loin possible sur des nuages g&eacute;n&eacute;r&eacute;s al&eacute;atoirement. Chaque partie est unique !</p>
             </div>
-
-            <div class="card">
-                <h2>Donn&eacute;es collect&eacute;es</h2>
-                <p>Jumpy Bird ne collecte <strong>aucune donn&eacute;e personnelle</strong>. Le jeu ne requiert aucune inscription, aucun compte utilisateur, et ne demande aucune information personnelle.</p>
-                <p>Les seules donn&eacute;es stock&eacute;es sont :</p>
-                <ul>
-                    <li>Votre meilleur score (stock&eacute; localement sur votre appareil)</li>
-                    <li>Vos pr&eacute;f&eacute;rences audio (stock&eacute;es localement sur votre appareil)</li>
-                    <li>Votre progression dans les niveaux (stock&eacute;e localement sur votre appareil)</li>
-                </ul>
-                <p>Ces donn&eacute;es ne quittent jamais votre appareil.</p>
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F3D4;&#xFE0F;</div>
+                <h3>10 Niveaux</h3>
+                <p>Explore des environnements vari&eacute;s avec des m&eacute;caniques qui se renouvellent &agrave; chaque niveau.</p>
             </div>
-
-            <div class="card">
-                <h2>Services tiers</h2>
-                <p>Le jeu utilise <strong>Google Play Games Services</strong> pour le classement en ligne (leaderboard). Ce service est g&eacute;r&eacute; par Google et soumis &agrave; la <a href="https://policies.google.com/privacy" target="_blank">politique de confidentialit&eacute; de Google</a>.</p>
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F3B5;</div>
+                <h3>Musique Proc&eacute;durale</h3>
+                <p>Chaque saut cr&eacute;e une note. Ton parcours compose une m&eacute;lodie unique.</p>
             </div>
-
-            <div class="card">
-                <h2>Publicit&eacute;s</h2>
-                <p>Jumpy Bird ne contient <strong>aucune publicit&eacute;</strong>.</p>
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F3C6;</div>
+                <h3>Classement Mondial</h3>
+                <p>Affronte les joueurs du monde entier via Google Play Games et grimpe au sommet !</p>
             </div>
-
-            <div class="card">
-                <h2>Enfants</h2>
-                <p>Le jeu est adapt&eacute; &agrave; tous les &acirc;ges. Aucune donn&eacute;e personnelle n'est collect&eacute;e aupr&egrave;s des enfants ni de qui que ce soit.</p>
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F319;</div>
+                <h3>Jour &amp; Nuit</h3>
+                <p>Niveaux de jour, couchers de soleil et ambiances nocturnes avec &eacute;toiles scintillantes.</p>
             </div>
-
-            <div class="card">
-                <h2>Contact</h2>
-                <p>Pour toute question concernant cette politique de confidentialit&eacute;, vous pouvez nous contacter par email : <a href="mailto:californylana@gmail.com">californylana@gmail.com</a></p>
-            </div>
-
-            <div class="card">
-                <h2>Modifications</h2>
-                <p>Cette politique de confidentialit&eacute; peut &ecirc;tre mise &agrave; jour. Toute modification sera publi&eacute;e sur cette page.</p>
-                <p><strong>Derni&egrave;re mise &agrave; jour :</strong> 21 mars 2026</p>
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F4B0;</div>
+                <h3>100% Gratuit</h3>
+                <p>Pas de pub, pas d'achats in-app. Juste du fun.</p>
             </div>
         </div>
+    </section>
 
-        <!-- ENGLISH -->
-        <div class="en">
-            <div class="card">
-                <h2>Introduction</h2>
-                <p>Jumpy Bird is a free mobile game. We respect your privacy and are committed to protecting your personal data.</p>
+    <!-- LEVELS -->
+    <section class="levels">
+        <h2>10 Mondes &agrave; Explorer</h2>
+        <div class="levels-scroll">
+            <div class="level-chip" style="background: linear-gradient(135deg, #87CEEB, #b8e6ff);">
+                &#x2601;&#xFE0F; Les Nuages <span>100 sauts</span>
             </div>
-
-            <div class="card">
-                <h2>Data Collection</h2>
-                <p>Jumpy Bird does <strong>not collect any personal data</strong>. The game does not require any registration, user account, or personal information.</p>
-                <p>The only data stored is:</p>
-                <ul>
-                    <li>Your best score (stored locally on your device)</li>
-                    <li>Your audio preferences (stored locally on your device)</li>
-                    <li>Your level progress (stored locally on your device)</li>
-                </ul>
-                <p>This data never leaves your device.</p>
+            <div class="level-chip" style="background: linear-gradient(135deg, #1a3a4a, #2d5a3d);">
+                &#x1F332; La For&ecirc;t <span>100 sauts</span>
             </div>
-
-            <div class="card">
-                <h2>Third-party Services</h2>
-                <p>The game uses <strong>Google Play Games Services</strong> for online leaderboards. This service is managed by Google and subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+            <div class="level-chip" style="background: linear-gradient(135deg, #4a90d9, #f4a460);">
+                &#x1F30A; La Rivi&egrave;re <span>100 sauts</span>
             </div>
-
-            <div class="card">
-                <h2>Advertising</h2>
-                <p>Jumpy Bird contains <strong>no advertising</strong>.</p>
+            <div class="level-chip" style="background: linear-gradient(135deg, #2d2d4e, #4a3a6e);">
+                &#x1F3D4;&#xFE0F; La Montagne <span>100 sauts</span>
             </div>
-
-            <div class="card">
-                <h2>Children</h2>
-                <p>The game is suitable for all ages. No personal data is collected from children or anyone else.</p>
+            <div class="level-chip" style="background: linear-gradient(135deg, #c2b280, #f4a460);">
+                &#x1F3DC;&#xFE0F; Le D&eacute;sert <span>100 sauts</span>
             </div>
-
-            <div class="card">
-                <h2>Contact</h2>
-                <p>For any questions about this privacy policy, you can reach us by email: <a href="mailto:californylana@gmail.com">californylana@gmail.com</a></p>
+            <div class="level-chip" style="background: linear-gradient(135deg, #1a1a3e, #0d47a1);">
+                &#x1F30C; L'Oc&eacute;an <span>100 sauts</span>
             </div>
-
-            <div class="card">
-                <h2>Changes</h2>
-                <p>This privacy policy may be updated. Any changes will be posted on this page.</p>
-                <p><strong>Last updated:</strong> March 21, 2026</p>
+            <div class="level-chip" style="background: linear-gradient(135deg, #ff6b35, #ff4444);">
+                &#x1F30B; Le Volcan <span>100 sauts</span>
+            </div>
+            <div class="level-chip" style="background: linear-gradient(135deg, #e8f5e9, #b2dfdb);">
+                &#x2744;&#xFE0F; La Banquise <span>100 sauts</span>
+            </div>
+            <div class="level-chip" style="background: linear-gradient(135deg, #1a1a2e, #4a148c);">
+                &#x1F320; L'Espace <span>100 sauts</span>
+            </div>
+            <div class="level-chip" style="background: linear-gradient(135deg, #ffd700, #ff6b35);">
+                &#x1F3E0; Le Nid <span>100 sauts</span>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- FOOTER -->
     <footer>
-        &copy; 2026 Jumpy Bird. All rights reserved.
+        <div class="footer-links">
+            <a href="privacy.html">Politique de confidentialit&eacute;</a>
+            <a href="mailto:californylana@gmail.com">Contact</a>
+        </div>
+        <p>&copy; 2026 Jumpy Bird. All rights reserved.</p>
     </footer>
 
-    <script>
-        function toggleLang() {
-            var isFr = document.querySelector('.fr').style.display !== 'none';
-            document.querySelectorAll('.fr').forEach(el => el.style.display = isFr ? 'none' : '');
-            document.querySelectorAll('.en').forEach(el => el.style.display = isFr ? '' : 'none');
-        }
-    </script>
 </body>
 </html>
