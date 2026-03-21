@@ -20,10 +20,23 @@
             text-align: center; padding: 40px 20px; position: relative; overflow: hidden;
         }
 
-        .hero-logo {
-            width: min(550px, 90vw); position: relative; z-index: 2;
-            mix-blend-mode: screen;
+        .hero-title {
+            font-family: 'Fredoka One', cursive; font-size: 5em;
+            position: relative; z-index: 2; line-height: 1.1;
             animation: logoFloat 3s ease-in-out infinite;
+        }
+        .hero-title .jumpy {
+            color: #7cc244; -webkit-text-stroke: 2px #5a9e2f;
+            text-shadow: 3px 3px 0 #4a8a25, 0 6px 15px rgba(0,0,0,0.15);
+        }
+        .hero-title .bird {
+            color: #4ab8e8; -webkit-text-stroke: 2px #3a95c4;
+            text-shadow: 3px 3px 0 #2e7da8, 0 6px 15px rgba(0,0,0,0.15);
+        }
+        .hero-icon {
+            width: 120px; position: relative; z-index: 2; margin-bottom: 15px;
+            animation: logoFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
         }
         @keyframes logoFloat {
             0%, 100% { transform: translateY(0); }
@@ -179,7 +192,8 @@
 
         /* === RESPONSIVE === */
         @media (max-width: 600px) {
-            .hero-logo { width: 85vw; }
+            .hero-title { font-size: 3em; }
+            .hero-icon { width: 80px; }
             .hero-tagline { font-size: 1.1em; }
             .screenshots h2, .features h2, .levels h2, .pricing h2 { font-size: 1.6em; }
             .screenshots-grid { grid-template-columns: 1fr; }
@@ -191,10 +205,11 @@
 
     <!-- HERO -->
     <section class="hero">
-        <img class="hero-logo" src="assets/titre.png" alt="Jumpy Bird">
+        <img class="hero-icon" src="assets/icon.png" alt="">
+        <h1 class="hero-title"><span class="jumpy">Jumpy</span><br><span class="bird">Bird</span></h1>
         <p class="hero-tagline">Saute de nuage en nuage. Bats ton record !</p>
 
-        <a href="#" class="cta-button">
+        <a href="https://play.google.com/store/apps/details?id=com.CalifornyLana.JumpyBird" class="cta-button">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
             T&eacute;l&eacute;charger sur Google Play
         </a>
