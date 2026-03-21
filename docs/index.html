@@ -133,8 +133,9 @@
 
     <script>
         function toggleLang() {
-            document.querySelectorAll('.fr').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
-            document.querySelectorAll('.en').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
+            var isFr = document.querySelector('.fr').style.display !== 'none';
+            document.querySelectorAll('.fr').forEach(el => el.style.display = isFr ? 'none' : '');
+            document.querySelectorAll('.en').forEach(el => el.style.display = isFr ? '' : 'none');
         }
     </script>
 </body>
