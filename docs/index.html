@@ -15,25 +15,13 @@
         /* === HERO === */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(180deg, #87CEEB 0%, #a8d8f0 30%, #c8e6f8 60%, #e8f4fc 100%);
+            background: url('assets/sky.png') center center / cover no-repeat;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             text-align: center; padding: 40px 20px; position: relative; overflow: hidden;
         }
 
-        /* Parallax clouds */
-        .bg-cloud {
-            position: absolute; opacity: 0.5;
-            animation: drift linear infinite;
-        }
-        .bg-cloud:nth-child(1) { width: 300px; top: 8%; left: -300px; animation-duration: 40s; }
-        .bg-cloud:nth-child(2) { width: 220px; top: 30%; left: -220px; animation-duration: 55s; animation-delay: 8s; opacity: 0.35; }
-        .bg-cloud:nth-child(3) { width: 260px; top: 55%; left: -260px; animation-duration: 45s; animation-delay: 15s; opacity: 0.4; }
-        .bg-cloud:nth-child(4) { width: 180px; top: 75%; left: -180px; animation-duration: 60s; animation-delay: 3s; opacity: 0.25; }
-        @keyframes drift { to { left: calc(100% + 300px); } }
-
         .hero-logo {
             width: min(500px, 85vw); position: relative; z-index: 2;
-            filter: drop-shadow(0 8px 25px rgba(0,0,0,0.15));
             animation: logoFloat 3s ease-in-out infinite;
         }
         @keyframes logoFloat {
@@ -58,15 +46,15 @@
         .cta-button svg { width: 28px; height: 28px; }
 
         .hero-bottom {
-            position: absolute; bottom: 0; left: 0; right: 0; height: 100px;
-            background: url('assets/footer_nuages.png') repeat-x bottom; background-size: auto 100px;
+            position: absolute; bottom: -2px; left: 0; right: 0; height: 150px;
+            background: url('assets/sky2.png') repeat-x bottom; background-size: auto 150px;
             z-index: 1;
         }
 
         /* === SCREENSHOTS === */
         .screenshots {
             padding: 80px 20px 60px;
-            background: linear-gradient(180deg, #e8f4fc, #ffffff);
+            background: linear-gradient(180deg, #d4ecf9, #ffffff);
         }
         .screenshots h2 {
             font-family: 'Fredoka One', cursive; font-size: 2.2em; text-align: center;
@@ -202,11 +190,6 @@
 
     <!-- HERO -->
     <section class="hero">
-        <img class="bg-cloud" src="assets/nuages.png" alt="">
-        <img class="bg-cloud" src="assets/nuages.png" alt="">
-        <img class="bg-cloud" src="assets/nuages.png" alt="">
-        <img class="bg-cloud" src="assets/nuages.png" alt="">
-
         <img class="hero-logo" src="assets/titre.png" alt="Jumpy Bird">
         <p class="hero-tagline">Saute de nuage en nuage. Bats ton record !</p>
 
