@@ -34,7 +34,7 @@
         /* ── Nav ── */
         .nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
             padding: 14px 28px;
             background: rgba(10, 17, 40, 0.55);
             backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
@@ -43,6 +43,17 @@
         .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
         .nav-brand img { width: 38px; height: 38px; border-radius: 10px; }
         .nav-brand span { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.15em; letter-spacing: 0.3px; }
+        .nav-right { display: flex; align-items: center; gap: 12px; }
+        .lang-select {
+            appearance: none; -webkit-appearance: none; cursor: pointer;
+            font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.88em;
+            color: var(--ink); background: var(--glass);
+            border: 1px solid var(--glass-border); border-radius: 999px;
+            padding: 8px 30px 8px 14px; outline: none;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23eef3ff'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 12px center;
+        }
+        .lang-select option { color: #10203f; }
 
         .btn {
             display: inline-flex; align-items: center; gap: 10px;
@@ -225,8 +236,9 @@
 
         @media (max-width: 600px) {
             section { padding: 70px 16px; }
-            .nav { padding: 10px 16px; }
+            .nav { padding: 10px 12px; }
             .nav .btn span { display: none; }
+            .nav-brand span { display: none; }
             .beta-card { padding: 36px 22px; }
         }
     </style>
@@ -235,37 +247,49 @@
 
     <nav class="nav">
         <a class="nav-brand" href="#"><img src="assets/icon.png" alt=""><span>Jumpy Bird</span></a>
-        <a class="btn btn-gold" href="#beta">&#x1F423; <span>Rejoindre la b&ecirc;ta</span></a>
+        <div class="nav-right">
+            <select class="lang-select" id="langSel" onchange="setLang(this.value)" aria-label="Langue">
+                <option value="fr">FR</option>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+                <option value="pt">PT</option>
+                <option value="it">IT</option>
+                <option value="de">DE</option>
+                <option value="zh">中文</option>
+                <option value="ja">日本語</option>
+            </select>
+            <a class="btn btn-gold" href="#beta">🐣 <span data-i18n="cta_join">Rejoindre la bêta</span></a>
+        </div>
     </nav>
 
     <!-- HERO -->
     <header class="hero">
         <img class="hero-icon" src="assets/icon.png" alt="Jumpy Bird">
         <h1><span class="a">Jumpy</span> <span class="b">Bird</span></h1>
-        <p class="hero-tagline">Saute de nuage en nuage &agrave; travers 10 mondes et ram&egrave;ne l'oisillon au nid.</p>
+        <p class="hero-tagline" data-i18n="tagline">Saute de nuage en nuage à travers 10 mondes et ramène l'oisillon au nid.</p>
         <div class="hero-ctas">
-            <a class="btn btn-gold" href="#beta">Rejoindre la b&ecirc;ta</a>
-            <a class="btn btn-ghost" href="#apercu">D&eacute;couvrir le jeu</a>
+            <a class="btn btn-gold" href="#beta" data-i18n="cta_join2">Rejoindre la bêta</a>
+            <a class="btn btn-ghost" href="#apercu" data-i18n="cta_discover">Découvrir le jeu</a>
         </div>
-        <p class="hero-note">Bient&ocirc;t sur Google Play &mdash; acc&egrave;s anticip&eacute; sur invitation</p>
+        <p class="hero-note" data-i18n="hero_note">Bientôt sur Google Play — accès anticipé sur invitation</p>
     </header>
 
     <!-- SCREENSHOTS -->
     <section class="shots" id="apercu">
         <div class="wrap">
             <div class="section-head reveal">
-                <span class="kicker">Aper&ccedil;u</span>
-                <h2>Dix mondes, dix ambiances</h2>
-                <p>Des prairies du nid aux temp&ecirc;tes du volcan, chaque niveau a sa lumi&egrave;re, sa m&eacute;t&eacute;o et ses pi&egrave;ges.</p>
+                <span class="kicker" data-i18n="shots_k">Aperçu</span>
+                <h2 data-i18n="shots_h">Dix mondes, dix ambiances</h2>
+                <p data-i18n="shots_p">Des prairies du nid aux tempêtes du volcan, chaque niveau a sa lumière, sa météo et ses pièges.</p>
             </div>
             <div class="shots-scroll reveal">
-                <figure class="shot"><img src="Screenshots/01-mer-nuit-pluie.jpg" alt="La Mer, nuit de pluie" loading="lazy"><figcaption>La Mer &mdash; nuit de pluie</figcaption></figure>
-                <figure class="shot"><img src="Screenshots/02-volcan.jpg" alt="Le Volcan en &eacute;ruption" loading="lazy"><figcaption>Le Volcan en &eacute;ruption</figcaption></figure>
-                <figure class="shot"><img src="Screenshots/03-vergers-perfect.jpg" alt="Les Vergers, atterrissage parfait" loading="lazy"><figcaption>Les Vergers &mdash; PERFECT !</figcaption></figure>
-                <figure class="shot"><img src="Screenshots/05-prairie.jpg" alt="Le Nid, premier envol" loading="lazy"><figcaption>Le Nid &mdash; premier envol</figcaption></figure>
-                <figure class="shot"><img src="Screenshots/06-desert.jpg" alt="Le D&eacute;sert" loading="lazy"><figcaption>Le D&eacute;sert br&ucirc;lant</figcaption></figure>
-                <figure class="shot"><img src="Screenshots/07-carte-voyage.jpg" alt="Carte du Voyage" loading="lazy"><figcaption>Le Voyage de l'Oisillon</figcaption></figure>
-                <figure class="shot"><img src="Screenshots/08-trophees.jpg" alt="Troph&eacute;es" loading="lazy"><figcaption>26 troph&eacute;es &agrave; d&eacute;bloquer</figcaption></figure>
+                <figure class="shot"><img src="Screenshots/01-mer-nuit-pluie.jpg" alt="" loading="lazy"><figcaption data-i18n="cap1">La Mer — nuit de pluie</figcaption></figure>
+                <figure class="shot"><img src="Screenshots/02-volcan.jpg" alt="" loading="lazy"><figcaption data-i18n="cap2">Le Volcan en éruption</figcaption></figure>
+                <figure class="shot"><img src="Screenshots/03-vergers-perfect.jpg" alt="" loading="lazy"><figcaption data-i18n="cap3">Les Vergers — PERFECT !</figcaption></figure>
+                <figure class="shot"><img src="Screenshots/05-prairie.jpg" alt="" loading="lazy"><figcaption data-i18n="cap4">Le Nid — premier envol</figcaption></figure>
+                <figure class="shot"><img src="Screenshots/06-desert.jpg" alt="" loading="lazy"><figcaption data-i18n="cap5">Le Désert brûlant</figcaption></figure>
+                <figure class="shot"><img src="Screenshots/07-carte-voyage.jpg" alt="" loading="lazy"><figcaption data-i18n="cap6">Le Voyage de l'Oisillon</figcaption></figure>
+                <figure class="shot"><img src="Screenshots/08-trophees.jpg" alt="" loading="lazy"><figcaption data-i18n="cap7">26 trophées à débloquer</figcaption></figure>
             </div>
         </div>
     </section>
@@ -274,16 +298,16 @@
     <section class="features">
         <div class="wrap">
             <div class="section-head reveal">
-                <span class="kicker">Gameplay</span>
-                <h2>Facile &agrave; jouer, dur &agrave; l&acirc;cher</h2>
+                <span class="kicker" data-i18n="feat_k">Gameplay</span>
+                <h2 data-i18n="feat_h">Facile à jouer, dur à lâcher</h2>
             </div>
             <div class="grid reveal">
-                <div class="card"><div class="ico">&#x2601;&#xFE0F;</div><h3>Mode Infini</h3><p>Des nuages g&eacute;n&eacute;r&eacute;s &agrave; l'infini et une pression qui monte. Chaque partie est unique &mdash; jusqu'o&ugrave; iras-tu ?</p></div>
-                <div class="card"><div class="ico">&#x1F5FA;&#xFE0F;</div><h3>10 Mondes</h3><p>Jours, couchers de soleil et nuits &eacute;toil&eacute;es : une m&eacute;canique nouvelle &agrave; chaque niveau du Voyage.</p></div>
-                <div class="card"><div class="ico">&#x1F326;&#xFE0F;</div><h3>M&eacute;t&eacute;o &amp; Pi&egrave;ges</h3><p>Rafales, pluie battante, brouillard, temp&ecirc;te de sable, braises &mdash; et des nuages mouvants, rebondissants ou friables.</p></div>
-                <div class="card"><div class="ico">&#x1F3AF;</div><h3>Atterrissages Parfaits</h3><p>Vise le centre, encha&icirc;ne les PERFECTs, bats le chrono et d&eacute;croche les 3 &eacute;toiles de chaque niveau.</p></div>
-                <div class="card"><div class="ico">&#x1F3C6;</div><h3>Classement Mondial</h3><p>Affronte le monde entier via Google Play Games, en g&eacute;n&eacute;ral ou entre amis, et collectionne 26 troph&eacute;es.</p></div>
-                <div class="card"><div class="ico">&#x1F6AB;</div><h3>Sans Pub</h3><p>Aucune publicit&eacute;, jamais. Un seul petit achat facultatif, pas d'abonnement.</p></div>
+                <div class="card"><div class="ico">☁️</div><h3 data-i18n="f1t">Mode Infini</h3><p data-i18n="f1p">Des nuages générés à l'infini et une pression qui monte. Chaque partie est unique — jusqu'où iras-tu ?</p></div>
+                <div class="card"><div class="ico">🗺️</div><h3 data-i18n="f2t">10 Mondes</h3><p data-i18n="f2p">Jours, couchers de soleil et nuits étoilées : une mécanique nouvelle à chaque niveau du Voyage.</p></div>
+                <div class="card"><div class="ico">🌦️</div><h3 data-i18n="f3t">Météo &amp; Pièges</h3><p data-i18n="f3p">Rafales, pluie battante, brouillard, tempête de sable, braises — et des nuages mouvants, rebondissants ou friables.</p></div>
+                <div class="card"><div class="ico">🎯</div><h3 data-i18n="f4t">Atterrissages Parfaits</h3><p data-i18n="f4p">Vise le centre, enchaîne les PERFECTs, bats le chrono et décroche les 3 étoiles de chaque niveau.</p></div>
+                <div class="card"><div class="ico">🏆</div><h3 data-i18n="f5t">Classement Mondial</h3><p data-i18n="f5p">Affronte le monde entier via Google Play Games, en général ou entre amis, et collectionne 26 trophées.</p></div>
+                <div class="card"><div class="ico">🚫</div><h3 data-i18n="f6t">Sans Pub</h3><p data-i18n="f6p">Aucune publicité, jamais. Un seul petit achat facultatif, pas d'abonnement.</p></div>
             </div>
         </div>
     </section>
@@ -292,20 +316,20 @@
     <section class="levels">
         <div class="wrap">
             <div class="section-head reveal">
-                <span class="kicker">Le Voyage de l'Oisillon</span>
-                <h2>L'aventure, niveau par niveau</h2>
+                <span class="kicker" data-i18n="lv_k">Le Voyage de l'Oisillon</span>
+                <h2 data-i18n="lv_h">L'aventure, niveau par niveau</h2>
             </div>
             <div class="chips reveal">
-                <div class="chip" style="--dot:#8ede6a;">&#x2601;&#xFE0F; Le Nid <small>Gratuit</small></div>
-                <div class="chip" style="--dot:#2d5a3d;">&#x1F332; La For&ecirc;t <small>Nuit</small></div>
-                <div class="chip" style="--dot:#f4a0b5;">&#x1F338; Les Vergers <small>Aube &middot; nuages mouvants</small></div>
-                <div class="chip" style="--dot:#8fa3d8;">&#x1F3D4;&#xFE0F; La Montagne <small>Neige &middot; brise</small></div>
-                <div class="chip" style="--dot:#e8a735;">&#x26A1; L'Orage <small>Pluie &middot; vent fort</small></div>
-                <div class="chip" style="--dot:#3a6b5e;">&#x1F343; Les Marais <small>Brouillard</small></div>
-                <div class="chip" style="--dot:#e0c080;">&#x1F3DC;&#xFE0F; Le D&eacute;sert <small>Temp&ecirc;te de sable</small></div>
-                <div class="chip" style="--dot:#4a90d9;">&#x1F30A; La Mer <small>Nuit &middot; houle</small></div>
-                <div class="chip" style="--dot:#ff6b35;">&#x1F30B; Le Volcan <small>Braises &middot; rochers</small></div>
-                <div class="chip" style="--dot:#ffd166;">&#x1F3E0; Le Retour <small>Finale</small></div>
+                <div class="chip" style="--dot:#8ede6a;">☁️ <span data-i18n="c1">Le Nid</span> <small data-i18n="c1s">Gratuit</small></div>
+                <div class="chip" style="--dot:#2d5a3d;">🌲 <span data-i18n="c2">La Forêt</span> <small data-i18n="c2s">Nuit</small></div>
+                <div class="chip" style="--dot:#f4a0b5;">🌸 <span data-i18n="c3">Les Vergers</span> <small data-i18n="c3s">Aube · nuages mouvants</small></div>
+                <div class="chip" style="--dot:#8fa3d8;">🏔️ <span data-i18n="c4">La Montagne</span> <small data-i18n="c4s">Neige · brise</small></div>
+                <div class="chip" style="--dot:#e8a735;">⚡ <span data-i18n="c5">L'Orage</span> <small data-i18n="c5s">Pluie · vent fort</small></div>
+                <div class="chip" style="--dot:#3a6b5e;">🍃 <span data-i18n="c6">Les Marais</span> <small data-i18n="c6s">Brouillard</small></div>
+                <div class="chip" style="--dot:#e0c080;">🏜️ <span data-i18n="c7">Le Désert</span> <small data-i18n="c7s">Tempête de sable</small></div>
+                <div class="chip" style="--dot:#4a90d9;">🌊 <span data-i18n="c8">La Mer</span> <small data-i18n="c8s">Nuit · houle</small></div>
+                <div class="chip" style="--dot:#ff6b35;">🌋 <span data-i18n="c9">Le Volcan</span> <small data-i18n="c9s">Braises · rochers</small></div>
+                <div class="chip" style="--dot:#ffd166;">🏠 <span data-i18n="c10">Le Retour</span> <small data-i18n="c10s">Finale</small></div>
             </div>
         </div>
     </section>
@@ -314,31 +338,31 @@
     <section>
         <div class="wrap">
             <div class="section-head reveal">
-                <span class="kicker">&Agrave; la sortie</span>
-                <h2>Gratuit pour d&eacute;couvrir, un seul achat pour tout</h2>
+                <span class="kicker" data-i18n="p_k">À la sortie</span>
+                <h2 data-i18n="p_h">Gratuit pour découvrir, un seul achat pour tout</h2>
             </div>
             <div class="pricing-row reveal">
                 <div class="price-card">
-                    <h3>Gratuit</h3>
-                    <div class="price">0&euro; <small>pour toujours</small></div>
+                    <h3 data-i18n="free_t">Gratuit</h3>
+                    <div class="price">0€ <small data-i18n="free_s">pour toujours</small></div>
                     <ul>
-                        <li>Niveau 1 &mdash; Le Nid</li>
-                        <li>Mode Infini <strong>sans limite</strong></li>
-                        <li>Consultation du classement mondial</li>
-                        <li class="off">Niveaux 2 &agrave; 10</li>
-                        <li class="off">Publication de tes scores</li>
+                        <li data-i18n="fr1">Niveau 1 — Le Nid</li>
+                        <li data-i18n="fr2">Mode Infini sans limite</li>
+                        <li data-i18n="fr3">Consultation du classement mondial</li>
+                        <li class="off" data-i18n="fr4">Niveaux 2 à 10</li>
+                        <li class="off" data-i18n="fr5">Publication de tes scores</li>
                     </ul>
                 </div>
                 <div class="price-card hot">
-                    <div class="price-badge">Recommand&eacute;</div>
-                    <h3>Jeu Complet</h3>
-                    <div class="price">1,99&euro; <small>achat unique</small></div>
+                    <div class="price-badge" data-i18n="full_b">Recommandé</div>
+                    <h3 data-i18n="full_t">Jeu Complet</h3>
+                    <div class="price"><span data-i18n="full_price">1,99€</span> <small data-i18n="full_s">achat unique</small></div>
                     <ul>
-                        <li>Les 10 niveaux du Voyage</li>
-                        <li>Publie tes scores au classement mondial</li>
-                        <li>26 troph&eacute;es &agrave; collectionner</li>
-                        <li>Aucune pub, jamais</li>
-                        <li>Un seul achat, pas d'abonnement</li>
+                        <li data-i18n="fu1">Les 10 niveaux du Voyage</li>
+                        <li data-i18n="fu2">Publie tes scores au classement mondial</li>
+                        <li data-i18n="fu3">26 trophées à collectionner</li>
+                        <li data-i18n="fu4">Aucune pub, jamais</li>
+                        <li data-i18n="fu5">Un seul achat, pas d'abonnement</li>
                     </ul>
                 </div>
             </div>
@@ -349,17 +373,17 @@
     <section class="beta" id="beta">
         <div class="wrap">
             <div class="beta-card reveal">
-                <span class="kicker">Acc&egrave;s anticip&eacute;</span>
-                <h2>Rejoins la b&ecirc;ta</h2>
-                <p>Le jeu est en test priv&eacute; sur Google Play. Laisse ton email et re&ccedil;ois ton invitation pour y jouer avant tout le monde.</p>
+                <span class="kicker" data-i18n="b_k">Accès anticipé</span>
+                <h2 data-i18n="b_h">Rejoins la bêta</h2>
+                <p data-i18n="b_p">Le jeu est en test privé sur Google Play. Laisse ton email et reçois ton invitation pour y jouer avant tout le monde.</p>
                 <form class="beta-form" name="beta" method="POST" action="merci.html" data-netlify="true" netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="beta">
                     <p class="hidden-field"><label>Ne pas remplir : <input name="bot-field"></label></p>
-                    <input type="email" name="email" required placeholder="ton@email.com" autocomplete="email">
-                    <button class="btn btn-gold" type="submit">&#x1F680; Je veux tester Jumpy Bird</button>
+                    <input type="email" name="email" required placeholder="ton@email.com" autocomplete="email" id="betaEmail">
+                    <button class="btn btn-gold" type="submit" data-i18n="b_btn">🚀 Je veux tester Jumpy Bird</button>
                     <label class="consent">
                         <input type="checkbox" name="consent" required>
-                        <span>J'accepte que mon email soit utilis&eacute; pour m'inviter &agrave; la b&ecirc;ta et me tenir inform&eacute;&middot;e de la sortie du jeu. D&eacute;sinscription &agrave; tout moment &mdash; voir la <a href="privacy.html">politique de confidentialit&eacute;</a>.</span>
+                        <span><span data-i18n="b_consent">J'accepte que mon email soit utilisé pour m'inviter à la bêta et me tenir informé·e de la sortie du jeu. Désinscription à tout moment —</span> <a href="privacy.html" data-i18n="b_consent_link">politique de confidentialité</a>.</span>
                     </label>
                 </form>
             </div>
@@ -369,20 +393,193 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-links">
-            <a href="privacy.html">Politique de confidentialit&eacute;</a>
-            <a href="mailto:californylana@gmail.com">Contact</a>
+            <a href="privacy.html" data-i18n="ft_privacy">Politique de confidentialité</a>
+            <a href="mailto:californylana@gmail.com" data-i18n="ft_contact">Contact</a>
         </div>
-        <p>Disponible en 8 langues &middot; Fran&ccedil;ais, English, Espa&ntilde;ol, Portugu&ecirc;s, Italiano, Deutsch, &#x4E2D;&#x6587;, &#x65E5;&#x672C;&#x8A9E;</p>
-        <p style="margin-top: 8px;">&copy; 2026 Jumpy Bird. Tous droits r&eacute;serv&eacute;s.</p>
+        <p>Français · English · Español · Português · Italiano · Deutsch · 中文 · 日本語</p>
+        <p style="margin-top: 8px;" data-i18n="ft_copy">© 2026 Jumpy Bird. Tous droits réservés.</p>
     </footer>
 
     <script>
-        // Fade-up reveals
+        // ── Reveal on scroll ──
         const io = new IntersectionObserver((entries) => {
             for (const e of entries)
                 if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
         }, { threshold: 0.12 });
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // ── i18n (textContent only — level names come from the game's Locale table) ──
+        const DICT = {
+        en: { cta_join: "Join the beta", cta_join2: "Join the beta", cta_discover: "Discover the game",
+            tagline: "Hop from cloud to cloud across 10 worlds and bring the little bird home.",
+            hero_note: "Coming soon to Google Play — early access by invitation",
+            shots_k: "Preview", shots_h: "Ten worlds, ten moods", shots_p: "From the nest's meadows to the volcano's storms, every level has its own light, weather and hazards.",
+            cap1: "The Sea — rainy night", cap2: "The Volcano erupting", cap3: "The Orchards — PERFECT!", cap4: "The Nest — first flight", cap5: "The scorching Desert", cap6: "The Little Bird's Journey", cap7: "26 achievements to unlock",
+            feat_k: "Gameplay", feat_h: "Easy to play, hard to put down",
+            f1t: "Endless Mode", f1p: "Endlessly generated clouds and ever-mounting pressure. Every run is unique — how far can you go?",
+            f2t: "10 Worlds", f2p: "Days, sunsets and starry nights: a brand-new mechanic in every level of the Journey.",
+            f3t: "Weather & Hazards", f3p: "Gusts, pouring rain, fog, sandstorms, embers — plus moving, bouncy and crumbling clouds.",
+            f4t: "Perfect Landings", f4p: "Aim for the center, chain PERFECTs, beat the clock and earn all 3 stars in every level.",
+            f5t: "Worldwide Leaderboard", f5p: "Take on the whole world via Google Play Games, globally or among friends — and collect 26 achievements.",
+            f6t: "No Ads", f6p: "No ads, ever. One small optional purchase, no subscription.",
+            lv_k: "The Little Bird's Journey", lv_h: "The adventure, level by level",
+            c1: "The Nest", c1s: "Free", c2: "The Forest", c2s: "Night", c3: "The Orchards", c3s: "Dawn · moving clouds", c4: "The Mountain", c4s: "Snow · breeze", c5: "The Storm", c5s: "Rain · strong wind", c6: "The Swamp", c6s: "Fog", c7: "The Desert", c7s: "Sandstorm", c8: "The Sea", c8s: "Night · swell", c9: "The Volcano", c9s: "Embers · falling rocks", c10: "The Return", c10s: "Finale",
+            p_k: "At launch", p_h: "Free to discover, one purchase for everything",
+            free_t: "Free", free_s: "forever", fr1: "Level 1 — The Nest", fr2: "Unlimited Endless Mode", fr3: "View the worldwide leaderboard", fr4: "Levels 2 to 10", fr5: "Publishing your scores",
+            full_b: "Recommended", full_t: "Full Game", full_price: "$1.99", full_s: "one-time purchase", fu1: "All 10 Journey levels", fu2: "Publish your scores to the leaderboard", fu3: "26 achievements to collect", fu4: "No ads, ever", fu5: "One purchase, no subscription",
+            b_k: "Early access", b_h: "Join the beta", b_p: "The game is in private testing on Google Play. Leave your email and get your invitation to play before everyone else.",
+            b_ph: "you@email.com", b_btn: "🚀 I want to test Jumpy Bird",
+            b_consent: "I agree that my email will be used to invite me to the beta and keep me posted about the launch. Unsubscribe anytime —", b_consent_link: "privacy policy",
+            ft_privacy: "Privacy Policy", ft_contact: "Contact", ft_copy: "© 2026 Jumpy Bird. All rights reserved." },
+        es: { cta_join: "Únete a la beta", cta_join2: "Únete a la beta", cta_discover: "Descubre el juego",
+            tagline: "Salta de nube en nube por 10 mundos y lleva al pajarito a su nido.",
+            hero_note: "Muy pronto en Google Play — acceso anticipado por invitación",
+            shots_k: "Vistazo", shots_h: "Diez mundos, diez ambientes", shots_p: "De las praderas del nido a las tormentas del volcán, cada nivel tiene su luz, su clima y sus peligros.",
+            cap1: "El Mar — noche de lluvia", cap2: "El Volcán en erupción", cap3: "Los Huertos — ¡PERFECTO!", cap4: "El Nido — primer vuelo", cap5: "El Desierto abrasador", cap6: "El Viaje del Pajarito", cap7: "26 logros por desbloquear",
+            feat_k: "Jugabilidad", feat_h: "Fácil de jugar, difícil de soltar",
+            f1t: "Modo Infinito", f1p: "Nubes generadas sin fin y una presión que no deja de crecer. Cada partida es única: ¿hasta dónde llegarás?",
+            f2t: "10 Mundos", f2p: "Días, atardeceres y noches estrelladas: una mecánica nueva en cada nivel del Viaje.",
+            f3t: "Clima y Peligros", f3p: "Ráfagas, lluvia torrencial, niebla, tormentas de arena, brasas — y nubes móviles, elásticas o quebradizas.",
+            f4t: "Aterrizajes Perfectos", f4p: "Apunta al centro, encadena PERFECTOs, bate el crono y consigue las 3 estrellas de cada nivel.",
+            f5t: "Clasificación Mundial", f5p: "Compite con todo el mundo vía Google Play Games, en general o entre amigos — y colecciona 26 logros.",
+            f6t: "Sin Publicidad", f6p: "Sin anuncios, nunca. Un pequeño pago opcional, sin suscripción.",
+            lv_k: "El Viaje del Pajarito", lv_h: "La aventura, nivel a nivel",
+            c1: "El Nido", c1s: "Gratis", c2: "El Bosque", c2s: "Noche", c3: "Los Huertos", c3s: "Alba · nubes móviles", c4: "La Montaña", c4s: "Nieve · brisa", c5: "La Tormenta", c5s: "Lluvia · viento fuerte", c6: "Los Pantanos", c6s: "Niebla", c7: "El Desierto", c7s: "Tormenta de arena", c8: "El Mar", c8s: "Noche · oleaje", c9: "El Volcán", c9s: "Brasas · rocas", c10: "El Regreso", c10s: "Final",
+            p_k: "En el lanzamiento", p_h: "Gratis para descubrir, un solo pago para todo",
+            free_t: "Gratis", free_s: "para siempre", fr1: "Nivel 1 — El Nido", fr2: "Modo Infinito sin límites", fr3: "Ver la clasificación mundial", fr4: "Niveles 2 a 10", fr5: "Publicar tus puntuaciones",
+            full_b: "Recomendado", full_t: "Juego Completo", full_price: "1,99€", full_s: "pago único", fu1: "Los 10 niveles del Viaje", fu2: "Publica tus puntuaciones en la clasificación", fu3: "26 logros para coleccionar", fu4: "Sin anuncios, nunca", fu5: "Un solo pago, sin suscripción",
+            b_k: "Acceso anticipado", b_h: "Únete a la beta", b_p: "El juego está en pruebas privadas en Google Play. Deja tu email y recibe tu invitación para jugar antes que nadie.",
+            b_ph: "tu@email.com", b_btn: "🚀 Quiero probar Jumpy Bird",
+            b_consent: "Acepto que mi email se use para invitarme a la beta y mantenerme al tanto del lanzamiento. Baja en cualquier momento —", b_consent_link: "política de privacidad",
+            ft_privacy: "Política de privacidad", ft_contact: "Contacto", ft_copy: "© 2026 Jumpy Bird. Todos los derechos reservados." },
+        pt: { cta_join: "Entre na beta", cta_join2: "Entre na beta", cta_discover: "Conheça o jogo",
+            tagline: "Pule de nuvem em nuvem por 10 mundos e leve o passarinho ao ninho.",
+            hero_note: "Em breve no Google Play — acesso antecipado por convite",
+            shots_k: "Prévia", shots_h: "Dez mundos, dez climas", shots_p: "Dos campos do ninho às tempestades do vulcão, cada fase tem sua luz, seu clima e seus perigos.",
+            cap1: "O Mar — noite de chuva", cap2: "O Vulcão em erupção", cap3: "Os Pomares — PERFEITO!", cap4: "O Ninho — primeiro voo", cap5: "O Deserto escaldante", cap6: "A Jornada do Passarinho", cap7: "26 conquistas para desbloquear",
+            feat_k: "Jogabilidade", feat_h: "Fácil de jogar, difícil de largar",
+            f1t: "Modo Infinito", f1p: "Nuvens geradas sem fim e uma pressão que só aumenta. Cada partida é única — até onde você vai?",
+            f2t: "10 Mundos", f2p: "Dias, pores do sol e noites estreladas: uma mecânica nova em cada fase da Jornada.",
+            f3t: "Clima e Perigos", f3p: "Rajadas, chuva forte, neblina, tempestades de areia, brasas — e nuvens móveis, elásticas ou quebradiças.",
+            f4t: "Pousos Perfeitos", f4p: "Mire no centro, encadeie PERFEITOs, vença o relógio e ganhe as 3 estrelas de cada fase.",
+            f5t: "Ranking Mundial", f5p: "Enfrente o mundo todo via Google Play Games, no geral ou entre amigos — e colecione 26 conquistas.",
+            f6t: "Sem Anúncios", f6p: "Nenhuma propaganda, nunca. Uma pequena compra opcional, sem assinatura.",
+            lv_k: "A Jornada do Passarinho", lv_h: "A aventura, fase por fase",
+            c1: "O Ninho", c1s: "Grátis", c2: "A Floresta", c2s: "Noite", c3: "Os Pomares", c3s: "Alvorada · nuvens móveis", c4: "A Montanha", c4s: "Neve · brisa", c5: "A Tempestade", c5s: "Chuva · vento forte", c6: "Os Pântanos", c6s: "Neblina", c7: "O Deserto", c7s: "Tempestade de areia", c8: "O Mar", c8s: "Noite · ondulação", c9: "O Vulcão", c9s: "Brasas · rochas", c10: "O Retorno", c10s: "Final",
+            p_k: "No lançamento", p_h: "Grátis para conhecer, uma única compra para tudo",
+            free_t: "Grátis", free_s: "para sempre", fr1: "Fase 1 — O Ninho", fr2: "Modo Infinito sem limites", fr3: "Ver o ranking mundial", fr4: "Fases 2 a 10", fr5: "Publicar suas pontuações",
+            full_b: "Recomendado", full_t: "Jogo Completo", full_price: "$1.99", full_s: "compra única", fu1: "As 10 fases da Jornada", fu2: "Publique suas pontuações no ranking", fu3: "26 conquistas para colecionar", fu4: "Sem anúncios, nunca", fu5: "Uma compra, sem assinatura",
+            b_k: "Acesso antecipado", b_h: "Entre na beta", b_p: "O jogo está em teste privado no Google Play. Deixe seu email e receba seu convite para jogar antes de todo mundo.",
+            b_ph: "voce@email.com", b_btn: "🚀 Quero testar Jumpy Bird",
+            b_consent: "Aceito que meu email seja usado para me convidar à beta e me avisar do lançamento. Cancele quando quiser —", b_consent_link: "política de privacidade",
+            ft_privacy: "Política de privacidade", ft_contact: "Contato", ft_copy: "© 2026 Jumpy Bird. Todos os direitos reservados." },
+        it: { cta_join: "Unisciti alla beta", cta_join2: "Unisciti alla beta", cta_discover: "Scopri il gioco",
+            tagline: "Salta di nuvola in nuvola attraverso 10 mondi e riporta l'uccellino al nido.",
+            hero_note: "Presto su Google Play — accesso anticipato su invito",
+            shots_k: "Anteprima", shots_h: "Dieci mondi, dieci atmosfere", shots_p: "Dai prati del nido alle tempeste del vulcano, ogni livello ha la sua luce, il suo meteo e le sue insidie.",
+            cap1: "Il Mare — notte di pioggia", cap2: "Il Vulcano in eruzione", cap3: "I Frutteti — PERFECT!", cap4: "Il Nido — primo volo", cap5: "Il Deserto rovente", cap6: "Il Viaggio dell'Uccellino", cap7: "26 trofei da sbloccare",
+            feat_k: "Gameplay", feat_h: "Facile da giocare, difficile da mollare",
+            f1t: "Modalità Infinita", f1p: "Nuvole generate all'infinito e una pressione crescente. Ogni partita è unica — fin dove arriverai?",
+            f2t: "10 Mondi", f2p: "Giorni, tramonti e notti stellate: una meccanica nuova a ogni livello del Viaggio.",
+            f3t: "Meteo e Insidie", f3p: "Raffiche, pioggia battente, nebbia, tempeste di sabbia, braci — più nuvole mobili, elastiche o friabili.",
+            f4t: "Atterraggi Perfetti", f4p: "Mira al centro, concatena i PERFECT, batti il cronometro e conquista le 3 stelle di ogni livello.",
+            f5t: "Classifica Mondiale", f5p: "Sfida tutto il mondo via Google Play Games, in generale o tra amici — e colleziona 26 trofei.",
+            f6t: "Senza Pubblicità", f6p: "Nessuna pubblicità, mai. Un piccolo acquisto facoltativo, nessun abbonamento.",
+            lv_k: "Il Viaggio dell'Uccellino", lv_h: "L'avventura, livello per livello",
+            c1: "Il Nido", c1s: "Gratis", c2: "La Foresta", c2s: "Notte", c3: "I Frutteti", c3s: "Alba · nuvole mobili", c4: "La Montagna", c4s: "Neve · brezza", c5: "Il Temporale", c5s: "Pioggia · vento forte", c6: "Le Paludi", c6s: "Nebbia", c7: "Il Deserto", c7s: "Tempesta di sabbia", c8: "Il Mare", c8s: "Notte · onde", c9: "Il Vulcano", c9s: "Braci · rocce", c10: "Il Ritorno", c10s: "Finale",
+            p_k: "Al lancio", p_h: "Gratis per scoprire, un solo acquisto per tutto",
+            free_t: "Gratis", free_s: "per sempre", fr1: "Livello 1 — Il Nido", fr2: "Modalità Infinita senza limiti", fr3: "Consulta la classifica mondiale", fr4: "Livelli da 2 a 10", fr5: "Pubblicare i tuoi punteggi",
+            full_b: "Consigliato", full_t: "Gioco Completo", full_price: "1,99€", full_s: "acquisto unico", fu1: "I 10 livelli del Viaggio", fu2: "Pubblica i tuoi punteggi in classifica", fu3: "26 trofei da collezionare", fu4: "Nessuna pubblicità, mai", fu5: "Un solo acquisto, nessun abbonamento",
+            b_k: "Accesso anticipato", b_h: "Unisciti alla beta", b_p: "Il gioco è in test privato su Google Play. Lascia la tua email e ricevi l'invito per giocare prima di tutti.",
+            b_ph: "tua@email.com", b_btn: "🚀 Voglio provare Jumpy Bird",
+            b_consent: "Accetto che la mia email sia usata per invitarmi alla beta e informarmi del lancio. Disiscrizione in ogni momento —", b_consent_link: "informativa privacy",
+            ft_privacy: "Informativa privacy", ft_contact: "Contatto", ft_copy: "© 2026 Jumpy Bird. Tutti i diritti riservati." },
+        de: { cta_join: "Zur Beta anmelden", cta_join2: "Zur Beta anmelden", cta_discover: "Spiel entdecken",
+            tagline: "Hüpfe von Wolke zu Wolke durch 10 Welten und bring das Küken nach Hause.",
+            hero_note: "Bald auf Google Play — früher Zugang auf Einladung",
+            shots_k: "Vorschau", shots_h: "Zehn Welten, zehn Stimmungen", shots_p: "Von den Wiesen des Nests bis zu den Stürmen des Vulkans: Jedes Level hat sein Licht, sein Wetter und seine Gefahren.",
+            cap1: "Das Meer — Regennacht", cap2: "Der Vulkan bricht aus", cap3: "Die Obstgärten — PERFEKT!", cap4: "Das Nest — erster Flug", cap5: "Die glühende Wüste", cap6: "Die Reise des Kükens", cap7: "26 Erfolge zum Freischalten",
+            feat_k: "Gameplay", feat_h: "Leicht zu spielen, schwer wegzulegen",
+            f1t: "Endlosmodus", f1p: "Endlos generierte Wolken und stetig wachsender Druck. Jeder Lauf ist einzigartig — wie weit kommst du?",
+            f2t: "10 Welten", f2p: "Tage, Sonnenuntergänge und Sternennächte: in jedem Level der Reise eine neue Mechanik.",
+            f3t: "Wetter & Gefahren", f3p: "Böen, Platzregen, Nebel, Sandstürme, Glut — dazu wandernde, federnde oder bröckelnde Wolken.",
+            f4t: "Perfekte Landungen", f4p: "Ziele auf die Mitte, reihe PERFEKTs aneinander, schlage die Uhr und hole alle 3 Sterne jedes Levels.",
+            f5t: "Weltweite Rangliste", f5p: "Tritt über Google Play Games gegen die ganze Welt an, allgemein oder unter Freunden — und sammle 26 Erfolge.",
+            f6t: "Werbefrei", f6p: "Keine Werbung, niemals. Ein kleiner optionaler Kauf, kein Abo.",
+            lv_k: "Die Reise des Kükens", lv_h: "Das Abenteuer, Level für Level",
+            c1: "Das Nest", c1s: "Kostenlos", c2: "Der Wald", c2s: "Nacht", c3: "Die Obstgärten", c3s: "Morgen · wandernde Wolken", c4: "Der Berg", c4s: "Schnee · Brise", c5: "Das Gewitter", c5s: "Regen · starker Wind", c6: "Das Moor", c6s: "Nebel", c7: "Die Wüste", c7s: "Sandsturm", c8: "Das Meer", c8s: "Nacht · Wellengang", c9: "Der Vulkan", c9s: "Glut · Steinschlag", c10: "Die Rückkehr", c10s: "Finale",
+            p_k: "Zum Start", p_h: "Kostenlos zum Entdecken, ein Kauf für alles",
+            free_t: "Kostenlos", free_s: "für immer", fr1: "Level 1 — Das Nest", fr2: "Unbegrenzter Endlosmodus", fr3: "Weltrangliste ansehen", fr4: "Level 2 bis 10", fr5: "Highscores veröffentlichen",
+            full_b: "Empfohlen", full_t: "Vollversion", full_price: "1,99€", full_s: "Einmalkauf", fu1: "Alle 10 Level der Reise", fu2: "Veröffentliche deine Highscores", fu3: "26 Erfolge zum Sammeln", fu4: "Keine Werbung, niemals", fu5: "Ein Kauf, kein Abo",
+            b_k: "Früher Zugang", b_h: "Komm in die Beta", b_p: "Das Spiel ist im privaten Test auf Google Play. Hinterlasse deine E-Mail und erhalte deine Einladung, um vor allen anderen zu spielen.",
+            b_ph: "du@email.com", b_btn: "🚀 Ich will Jumpy Bird testen",
+            b_consent: "Ich stimme zu, dass meine E-Mail genutzt wird, um mich zur Beta einzuladen und über den Launch zu informieren. Jederzeit abmeldbar —", b_consent_link: "Datenschutzerklärung",
+            ft_privacy: "Datenschutzerklärung", ft_contact: "Kontakt", ft_copy: "© 2026 Jumpy Bird. Alle Rechte vorbehalten." },
+        zh: { cta_join: "加入测试", cta_join2: "加入测试", cta_discover: "了解游戏",
+            tagline: "穿越10个世界，从云朵跳到云朵，带小雏鸟回家。",
+            hero_note: "即将登陆 Google Play——邀请制抢先体验",
+            shots_k: "预览", shots_h: "十个世界，十种风情", shots_p: "从鸟巢的草原到火山的风暴，每一关都有独特的光影、天气与险境。",
+            cap1: "大海——雨夜", cap2: "火山喷发", cap3: "果园——完美着陆！", cap4: "鸟巢——初次飞翔", cap5: "灼热沙漠", cap6: "雏鸟的旅程", cap7: "26项成就等你解锁",
+            feat_k: "玩法", feat_h: "上手容易，欲罢不能",
+            f1t: "无尽模式", f1p: "云朵无限生成，压力节节攀升。每一局都独一无二——你能跳多远？",
+            f2t: "十大世界", f2p: "白昼、日落与星夜：旅程的每一关都有全新机制。",
+            f3t: "天气与险境", f3p: "狂风、暴雨、浓雾、沙尘暴、火星——还有移动、弹跳或崩塌的云朵。",
+            f4t: "完美着陆", f4p: "瞄准云朵中心，连续达成完美，挑战计时，摘取每关3颗星。",
+            f5t: "全球排行榜", f5p: "通过 Google Play 游戏与全球或好友一较高下——并收集26项成就。",
+            f6t: "无广告", f6p: "永无广告。仅一项小额可选购买，无订阅。",
+            lv_k: "雏鸟的旅程", lv_h: "冒险，一关接一关",
+            c1: "鸟巢", c1s: "免费", c2: "森林", c2s: "夜晚", c3: "果园", c3s: "黎明 · 移动云朵", c4: "山脉", c4s: "雪 · 微风", c5: "暴风雨", c5s: "暴雨 · 强风", c6: "沼泽", c6s: "浓雾", c7: "沙漠", c7s: "沙尘暴", c8: "大海", c8s: "夜晚 · 海浪", c9: "火山", c9s: "火星 · 落石", c10: "归来", c10s: "大结局",
+            p_k: "上线时", p_h: "免费畅玩，一次购买解锁全部",
+            free_t: "免费", free_s: "永久", fr1: "第1关——鸟巢", fr2: "无限制无尽模式", fr3: "查看全球排行榜", fr4: "第2至10关", fr5: "发布你的分数",
+            full_b: "推荐", full_t: "完整版", full_price: "US$1.99", full_s: "一次性购买", fu1: "旅程全部10关", fu2: "将分数发布到排行榜", fu3: "26项成就等你收集", fu4: "永无广告", fu5: "一次购买，无订阅",
+            b_k: "抢先体验", b_h: "加入测试", b_p: "游戏正在 Google Play 私密测试中。留下邮箱，抢先获得邀请！",
+            b_ph: "you@email.com", b_btn: "🚀 我要测试 Jumpy Bird",
+            b_consent: "我同意将我的邮箱用于测试邀请及发布通知。可随时退订——", b_consent_link: "隐私政策",
+            ft_privacy: "隐私政策", ft_contact: "联系我们", ft_copy: "© 2026 Jumpy Bird 保留所有权利。" },
+        ja: { cta_join: "ベータに参加", cta_join2: "ベータに参加", cta_discover: "ゲームを見る",
+            tagline: "10の世界を雲から雲へジャンプして、ヒナを巣まで届けよう。",
+            hero_note: "Google Playで近日公開 — 招待制の先行アクセス",
+            shots_k: "プレビュー", shots_h: "10の世界、10の情景", shots_p: "巣の草原から火山の嵐まで、どのレベルにも独自の光と天候とトラップがあります。",
+            cap1: "海 — 雨の夜", cap2: "噴火する火山", cap3: "果樹園 — パーフェクト！", cap4: "巣 — はじめての飛行", cap5: "灼熱の砂漠", cap6: "ヒナ鳥の旅", cap7: "解放できる26の実績",
+            feat_k: "ゲームプレイ", feat_h: "遊ぶのは簡単、やめるのは大変",
+            f1t: "エンドレスモード", f1p: "無限に生成される雲と高まるプレッシャー。同じプレイは二度とない——どこまで行ける？",
+            f2t: "10の世界", f2p: "昼、夕焼け、星降る夜：旅のレベルごとに新しいギミック。",
+            f3t: "天候とトラップ", f3p: "突風、土砂降り、霧、砂嵐、火の粉——さらに動く雲、弾む雲、崩れる雲。",
+            f4t: "パーフェクト着地", f4p: "雲の中心を狙ってPERFECTを連発、タイムに挑み、各レベルの3つ星を獲得しよう。",
+            f5t: "世界ランキング", f5p: "Google Play ゲームで世界中やフレンドと競い合い、26の実績を集めよう。",
+            f6t: "広告なし", f6p: "広告は一切なし。小さな買い切りのみ、サブスクなし。",
+            lv_k: "ヒナ鳥の旅", lv_h: "レベルごとの冒険",
+            c1: "巣", c1s: "無料", c2: "森", c2s: "夜", c3: "果樹園", c3s: "夜明け · 動く雲", c4: "山", c4s: "雪 · そよ風", c5: "嵐", c5s: "雨 · 強風", c6: "沼地", c6s: "霧", c7: "砂漠", c7s: "砂嵐", c8: "海", c8s: "夜 · うねり", c9: "火山", c9s: "火の粉 · 落石", c10: "帰還", c10s: "フィナーレ",
+            p_k: "リリース時", p_h: "無料で体験、一度の購入ですべて解放",
+            free_t: "無料", free_s: "ずっと", fr1: "レベル1 — 巣", fr2: "無制限エンドレスモード", fr3: "世界ランキングの閲覧", fr4: "レベル2〜10", fr5: "スコアの投稿",
+            full_b: "おすすめ", full_t: "完全版", full_price: "US$1.99", full_s: "買い切り", fu1: "旅の全10レベル", fu2: "スコアをランキングに投稿", fu3: "集められる26の実績", fu4: "広告は一切なし", fu5: "一度の購入、サブスクなし",
+            b_k: "先行アクセス", b_h: "ベータに参加しよう", b_p: "ゲームはGoogle Playで非公開テスト中。メールを登録して、誰よりも早く遊ぶ招待を受け取ろう。",
+            b_ph: "you@email.com", b_btn: "🚀 Jumpy Birdをテストしたい",
+            b_consent: "ベータへの招待とリリースのお知らせのためにメールが使用されることに同意します。いつでも解除可能 —", b_consent_link: "プライバシーポリシー",
+            ft_privacy: "プライバシーポリシー", ft_contact: "お問い合わせ", ft_copy: "© 2026 Jumpy Bird. 無断転載を禁じます。" }
+        };
+
+        const ELS = [...document.querySelectorAll('[data-i18n]')];
+        const FR = {};
+        ELS.forEach(el => { if (!(el.dataset.i18n in FR)) FR[el.dataset.i18n] = el.textContent; });
+        const emailEl = document.getElementById('betaEmail');
+        const FR_PH = emailEl.placeholder;
+
+        function setLang(l) {
+            const d = l === 'fr' ? FR : DICT[l];
+            if (!d) return;
+            ELS.forEach(el => { const v = d[el.dataset.i18n]; if (v !== undefined) el.textContent = v; });
+            emailEl.placeholder = l === 'fr' ? FR_PH : (d.b_ph || FR_PH);
+            document.documentElement.lang = l;
+            try { localStorage.setItem('jb-lang', l); } catch (e) {}
+            document.getElementById('langSel').value = l;
+        }
+
+        let saved = null;
+        try { saved = localStorage.getItem('jb-lang'); } catch (e) {}
+        const nav2 = (navigator.language || 'fr').slice(0, 2).toLowerCase();
+        const SUPPORTED = ['fr', 'en', 'es', 'pt', 'it', 'de', 'zh', 'ja'];
+        setLang(saved && SUPPORTED.includes(saved) ? saved : (SUPPORTED.includes(nav2) ? nav2 : 'en'));
     </script>
 </body>
 </html>
