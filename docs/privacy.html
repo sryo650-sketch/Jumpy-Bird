@@ -3,150 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jumpy Bird - Politique de confidentialité</title>
+    <title>Politique de confidentialité — Jumpy Bird</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Outfit:wght@400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f4f8; color: #333; line-height: 1.7; }
-        header { background: linear-gradient(135deg, #4fc3f7, #29b6f6); padding: 40px 20px; text-align: center; color: white; }
-        header h1 { font-size: 2em; margin-bottom: 5px; }
-        header p { opacity: 0.9; font-size: 1.1em; }
-        .container { max-width: 800px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-        .card h2 { color: #29b6f6; margin-bottom: 15px; font-size: 1.3em; }
-        .card p, .card li { margin-bottom: 10px; }
+        body {
+            font-family: 'Outfit', sans-serif; color: #eef3ff; line-height: 1.7;
+            background: linear-gradient(180deg, #101b3f, #0a1128) fixed;
+        }
+        header { text-align: center; padding: 60px 20px 30px; }
+        header img { width: 72px; border-radius: 18px; margin-bottom: 14px; }
+        h1 { font-family: 'Baloo 2', sans-serif; font-size: 1.9em; color: #ffd166; }
+        .updated { color: rgba(238, 243, 255, 0.55); font-size: 0.88em; margin-top: 4px; }
+        .container { max-width: 760px; margin: 24px auto 60px; padding: 0 20px; }
+        .lang-switch { text-align: right; margin-bottom: 14px; }
+        .lang-switch a {
+            cursor: pointer; font-weight: 600; font-size: 0.88em; color: #6ec6ff;
+            padding: 6px 14px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.055); border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 20px; padding: 26px 28px; margin-bottom: 16px;
+        }
+        .card h2 { font-family: 'Baloo 2', sans-serif; font-size: 1.15em; color: #6ec6ff; margin-bottom: 10px; }
+        .card p, .card li { color: rgba(238, 243, 255, 0.8); margin-bottom: 8px; font-size: 0.95em; }
         .card ul { padding-left: 20px; }
-        footer { text-align: center; padding: 30px; color: #999; font-size: 0.9em; }
-        a { color: #29b6f6; }
-        .lang-switch { text-align: right; margin-bottom: 10px; }
-        .lang-switch a { cursor: pointer; text-decoration: none; padding: 5px 10px; border-radius: 5px; background: #e3f2fd; }
+        a { color: #6ec6ff; }
+        footer { text-align: center; padding: 30px; color: rgba(238, 243, 255, 0.5); font-size: 0.88em; }
+        footer a { margin: 0 10px; }
         .en { display: none; }
     </style>
 </head>
 <body>
     <header>
-        <h1>Jumpy Bird</h1>
-        <p class="fr">Politique de confidentialit&eacute;</p>
-        <p class="en">Privacy Policy</p>
+        <img src="assets/icon.png" alt="Jumpy Bird">
+        <h1 class="fr">Politique de confidentialit&eacute;</h1>
+        <h1 class="en">Privacy Policy</h1>
+        <p class="updated fr">Derni&egrave;re mise &agrave; jour : 3 ao&ucirc;t 2026</p>
+        <p class="updated en">Last updated: August 3, 2026</p>
     </header>
 
     <div class="container">
-        <div class="lang-switch">
-            <a onclick="toggleLang()">EN / FR</a>
-        </div>
+        <div class="lang-switch"><a onclick="toggleLang()">EN / FR</a></div>
 
-        <!-- FRENCH -->
+        <!-- FRANÇAIS -->
         <div class="fr">
             <div class="card">
-                <h2>Introduction</h2>
-                <p>Jumpy Bird est un jeu mobile gratuit. Nous respectons votre vie priv&eacute;e et nous engageons &agrave; prot&eacute;ger vos donn&eacute;es personnelles.</p>
+                <h2>En bref</h2>
+                <p>Jumpy Bird est un jeu mobile ind&eacute;pendant. Nous collectons le strict minimum : pas de publicit&eacute;, pas de traceurs, pas de revente de donn&eacute;es &mdash; jamais.</p>
             </div>
-
             <div class="card">
                 <h2>Donn&eacute;es collect&eacute;es</h2>
-                <p>Jumpy Bird ne collecte <strong>aucune donn&eacute;e personnelle</strong>. Le jeu ne requiert aucune inscription, aucun compte utilisateur, et ne demande aucune information personnelle.</p>
-                <p>Les seules donn&eacute;es stock&eacute;es sont :</p>
                 <ul>
-                    <li>Votre meilleur score (stock&eacute; localement sur votre appareil)</li>
-                    <li>Vos pr&eacute;f&eacute;rences audio (stock&eacute;es localement sur votre appareil)</li>
-                    <li>Votre progression dans les niveaux (stock&eacute;e localement sur votre appareil)</li>
+                    <li><strong>Email (site web, facultatif)</strong> : si tu t'inscris &agrave; la b&ecirc;ta, ton adresse email est enregistr&eacute;e avec ton consentement, uniquement pour t'envoyer l'invitation Google Play et t'informer de la sortie du jeu.</li>
+                    <li><strong>Google Play Games (jeu, facultatif)</strong> : si tu te connectes, ton pseudo public et tes scores sont trait&eacute;s par Google pour le classement en ligne, selon la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">politique de confidentialit&eacute; de Google</a>.</li>
+                    <li><strong>Achats</strong> : le d&eacute;blocage du jeu complet est trait&eacute; enti&egrave;rement par Google Play. Nous ne voyons aucune donn&eacute;e bancaire.</li>
+                    <li><strong>Donn&eacute;es locales</strong> : progression, scores et pr&eacute;f&eacute;rences sont stock&eacute;s sur ton appareil et ne le quittent pas.</li>
                 </ul>
-                <p>Ces donn&eacute;es ne quittent jamais votre appareil.</p>
             </div>
-
             <div class="card">
-                <h2>Services tiers</h2>
-                <p>Le jeu utilise <strong>Google Play Games Services</strong> pour le classement en ligne (leaderboard). Ce service est g&eacute;r&eacute; par Google et soumis &agrave; la <a href="https://policies.google.com/privacy" target="_blank">politique de confidentialit&eacute; de Google</a>.</p>
+                <h2>Ce que nous n'en faisons pas</h2>
+                <p>Aucune publicit&eacute;, aucun partage ni vente &agrave; des tiers, aucun profilage. Les emails de la b&ecirc;ta ne servent &agrave; rien d'autre que la b&ecirc;ta et l'annonce de sortie.</p>
             </div>
-
-            <div class="card">
-                <h2>Publicit&eacute;s</h2>
-                <p>Jumpy Bird ne contient <strong>aucune publicit&eacute;</strong>.</p>
-            </div>
-
-            <div class="card">
-                <h2>Achats int&eacute;gr&eacute;s</h2>
-                <p>Jumpy Bird propose un achat int&eacute;gr&eacute; optionnel pour d&eacute;bloquer le jeu complet (tous les niveaux et le mode infini). Ce paiement est trait&eacute; par <strong>Google Play</strong> et soumis aux <a href="https://policies.google.com/privacy" target="_blank">conditions de Google</a>. Nous ne collectons ni ne stockons aucune information de paiement.</p>
-            </div>
-
             <div class="card">
                 <h2>Enfants</h2>
-                <p>Le jeu est adapt&eacute; &agrave; tous les &acirc;ges. Aucune donn&eacute;e personnelle n'est collect&eacute;e aupr&egrave;s des enfants ni de qui que ce soit.</p>
+                <p>Le jeu convient &agrave; tous les &acirc;ges et ne demande aucune donn&eacute;e en jeu. L'inscription &agrave; la b&ecirc;ta par email est r&eacute;serv&eacute;e aux 15 ans et plus (ou avec accord parental).</p>
             </div>
-
+            <div class="card">
+                <h2>Tes droits</h2>
+                <p>Tu peux &agrave; tout moment demander l'acc&egrave;s, la rectification ou la suppression de ton email de la liste b&ecirc;ta : &eacute;cris-nous et c'est fait sous 30 jours. La d&eacute;sinscription est aussi possible depuis chaque email re&ccedil;u.</p>
+            </div>
             <div class="card">
                 <h2>Contact</h2>
-                <p>Pour toute question concernant cette politique de confidentialit&eacute;, vous pouvez nous contacter par email : <a href="mailto:californylana@gmail.com">californylana@gmail.com</a></p>
-            </div>
-
-            <div class="card">
-                <h2>Modifications</h2>
-                <p>Cette politique de confidentialit&eacute; peut &ecirc;tre mise &agrave; jour. Toute modification sera publi&eacute;e sur cette page.</p>
-                <p><strong>Derni&egrave;re mise &agrave; jour :</strong> 21 mars 2026</p>
+                <p><a href="mailto:californylana@gmail.com">californylana@gmail.com</a></p>
             </div>
         </div>
 
         <!-- ENGLISH -->
         <div class="en">
             <div class="card">
-                <h2>Introduction</h2>
-                <p>Jumpy Bird is a free mobile game. We respect your privacy and are committed to protecting your personal data.</p>
+                <h2>In short</h2>
+                <p>Jumpy Bird is an independent mobile game. We collect the bare minimum: no ads, no trackers, no selling of data &mdash; ever.</p>
             </div>
-
             <div class="card">
-                <h2>Data Collection</h2>
-                <p>Jumpy Bird does <strong>not collect any personal data</strong>. The game does not require any registration, user account, or personal information.</p>
-                <p>The only data stored is:</p>
+                <h2>Data we collect</h2>
                 <ul>
-                    <li>Your best score (stored locally on your device)</li>
-                    <li>Your audio preferences (stored locally on your device)</li>
-                    <li>Your level progress (stored locally on your device)</li>
+                    <li><strong>Email (website, optional)</strong>: if you sign up for the beta, your email address is stored with your consent, only to send your Google Play invitation and let you know when the game launches.</li>
+                    <li><strong>Google Play Games (in-game, optional)</strong>: if you sign in, your public gamer name and scores are processed by Google for the online leaderboard, under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</li>
+                    <li><strong>Purchases</strong>: unlocking the full game is handled entirely by Google Play. We never see any payment data.</li>
+                    <li><strong>Local data</strong>: progress, scores and preferences are stored on your device and never leave it.</li>
                 </ul>
-                <p>This data never leaves your device.</p>
             </div>
-
             <div class="card">
-                <h2>Third-party Services</h2>
-                <p>The game uses <strong>Google Play Games Services</strong> for online leaderboards. This service is managed by Google and subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+                <h2>What we don't do</h2>
+                <p>No ads, no sharing or selling to third parties, no profiling. Beta emails are used for the beta and the launch announcement, nothing else.</p>
             </div>
-
-            <div class="card">
-                <h2>Advertising</h2>
-                <p>Jumpy Bird contains <strong>no advertising</strong>.</p>
-            </div>
-
-            <div class="card">
-                <h2>In-App Purchases</h2>
-                <p>Jumpy Bird offers an optional in-app purchase to unlock the full game (all levels and infinite mode). Payment is processed by <strong>Google Play</strong> and subject to <a href="https://policies.google.com/privacy" target="_blank">Google's terms</a>. We do not collect or store any payment information.</p>
-            </div>
-
             <div class="card">
                 <h2>Children</h2>
-                <p>The game is suitable for all ages. No personal data is collected from children or anyone else.</p>
+                <p>The game is suitable for all ages and asks for no data in-game. Beta email signup is restricted to ages 15+ (or with parental consent).</p>
             </div>
-
+            <div class="card">
+                <h2>Your rights</h2>
+                <p>You can request access, correction or deletion of your email from the beta list at any time: write to us and it is done within 30 days. You can also unsubscribe from any email you receive.</p>
+            </div>
             <div class="card">
                 <h2>Contact</h2>
-                <p>For any questions about this privacy policy, you can reach us by email: <a href="mailto:californylana@gmail.com">californylana@gmail.com</a></p>
-            </div>
-
-            <div class="card">
-                <h2>Changes</h2>
-                <p>This privacy policy may be updated. Any changes will be posted on this page.</p>
-                <p><strong>Last updated:</strong> March 21, 2026</p>
+                <p><a href="mailto:californylana@gmail.com">californylana@gmail.com</a></p>
             </div>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 Jumpy Bird. All rights reserved.
+        <a class="fr" href="index.html">&larr; Retour au site</a>
+        <a class="en" href="index.html">&larr; Back to the site</a>
     </footer>
 
     <script>
         function toggleLang() {
-            var isFr = document.querySelector('.fr').style.display !== 'none';
-            document.querySelectorAll('.fr').forEach(el => el.style.display = isFr ? 'none' : '');
-            document.querySelectorAll('.en').forEach(el => el.style.display = isFr ? '' : 'none');
+            document.querySelectorAll('.fr').forEach(e => e.style.display = e.style.display === 'none' ? '' : 'none');
+            document.querySelectorAll('.en').forEach(e => e.style.display = e.style.display === '' ? 'none' : '');
         }
+        // EN hidden by default via CSS; normalize inline styles once
+        document.querySelectorAll('.en').forEach(e => e.style.display = 'none');
+        document.querySelectorAll('.fr').forEach(e => e.style.display = '');
     </script>
 </body>
 </html>
