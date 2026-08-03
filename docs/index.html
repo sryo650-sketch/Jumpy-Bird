@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jumpy Bird - Saute de nuage en nuage !</title>
-    <meta name="description" content="Jumpy Bird est un jeu de plateforme mobile fun et addictif. Saute de nuage en nuage, bats ton record et explore 10 niveaux uniques !">
+    <meta name="description" content="Jumpy Bird est un jeu de plateforme mobile fun et addictif. Saute de nuage en nuage et ram&egrave;ne l'oisillon au nid : 10 niveaux, m&eacute;t&eacute;o dynamique, mode infini et classement mondial !">
     <link rel="icon" type="image/png" href="assets/icon.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
@@ -15,7 +15,7 @@
         /* === HERO === */
         .hero {
             min-height: 100vh;
-            background: url('assets/sky.png') center center / cover no-repeat;
+            background: url('assets/hero.jpg') center center / cover no-repeat;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             text-align: center; padding: 40px 20px; position: relative; overflow: hidden;
         }
@@ -45,7 +45,8 @@
 
         .hero-tagline {
             font-family: 'Fredoka One', cursive; font-size: 1.5em;
-            color: #2c7da0; margin: 25px 0 40px; position: relative; z-index: 2;
+            color: #ffffff; text-shadow: 0 2px 10px rgba(10, 20, 60, 0.8);
+            margin: 25px 0 40px; position: relative; z-index: 2;
         }
 
         .cta-button {
@@ -207,7 +208,7 @@
     <section class="hero">
         <img class="hero-icon" src="assets/icon.png" alt="">
         <h1 class="hero-title"><span class="jumpy">Jumpy</span><br><span class="bird">Bird</span></h1>
-        <p class="hero-tagline">Saute de nuage en nuage. Bats ton record !</p>
+        <p class="hero-tagline">Saute de nuage en nuage et ram&egrave;ne l'oisillon au nid !</p>
 
         <a href="https://play.google.com/store/apps/details?id=com.CalifornyLana.JumpyBird" class="cta-button">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
@@ -222,28 +223,36 @@
         <h2>&#x1F4F8; Aper&ccedil;u du jeu</h2>
         <div class="screenshots-grid">
             <div class="screenshot-card">
-                <img src="Screenshots/menu.png" alt="Menu principal" loading="lazy">
-                <div class="caption">Menu principal</div>
+                <img src="Screenshots/01-mer-nuit-pluie.jpg" alt="La Mer - nuit de pluie" loading="lazy">
+                <div class="caption">La Mer &mdash; nuit de pluie</div>
             </div>
             <div class="screenshot-card">
-                <img src="Screenshots/lvl1.png" alt="Niveau 1 - Les Nuages" loading="lazy">
-                <div class="caption">Niveau 1 &mdash; Les Nuages</div>
+                <img src="Screenshots/02-volcan.jpg" alt="Le Volcan en &eacute;ruption" loading="lazy">
+                <div class="caption">Le Volcan en &eacute;ruption</div>
             </div>
             <div class="screenshot-card">
-                <img src="Screenshots/lvl2.png" alt="Niveau 2 - La For&ecirc;t" loading="lazy">
-                <div class="caption">Niveau 2 &mdash; La For&ecirc;t</div>
+                <img src="Screenshots/03-vergers-perfect.jpg" alt="Les Vergers - atterrissage parfait" loading="lazy">
+                <div class="caption">Les Vergers &mdash; PERFECT !</div>
             </div>
             <div class="screenshot-card">
-                <img src="Screenshots/map.png" alt="Carte du monde" loading="lazy">
+                <img src="Screenshots/05-prairie.jpg" alt="Le Nid - premier envol" loading="lazy">
+                <div class="caption">Le Nid &mdash; premier envol</div>
+            </div>
+            <div class="screenshot-card">
+                <img src="Screenshots/06-desert.jpg" alt="Le D&eacute;sert" loading="lazy">
+                <div class="caption">Le D&eacute;sert br&ucirc;lant</div>
+            </div>
+            <div class="screenshot-card">
+                <img src="Screenshots/04-accueil.jpg" alt="&Eacute;cran d'accueil" loading="lazy">
+                <div class="caption">&Eacute;cran d'accueil</div>
+            </div>
+            <div class="screenshot-card">
+                <img src="Screenshots/07-carte-voyage.jpg" alt="Carte du Voyage de l'Oisillon" loading="lazy">
                 <div class="caption">Le Voyage de l'Oisillon</div>
             </div>
             <div class="screenshot-card">
-                <img src="Screenshots/Classement.png" alt="Classement mondial" loading="lazy">
-                <div class="caption">Classement mondial</div>
-            </div>
-            <div class="screenshot-card">
-                <img src="Screenshots/trophées.png" alt="Troph&eacute;es" loading="lazy">
-                <div class="caption">Troph&eacute;es &amp; r&eacute;compenses</div>
+                <img src="Screenshots/08-trophees.jpg" alt="Troph&eacute;es" loading="lazy">
+                <div class="caption">26 troph&eacute;es &agrave; d&eacute;bloquer</div>
             </div>
         </div>
     </section>
@@ -259,23 +268,23 @@
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#x1F5FA;&#xFE0F;</div>
-                <h3>10 Niveaux</h3>
-                <p>Explore des environnements vari&eacute;s avec des m&eacute;caniques qui se renouvellent &agrave; chaque niveau.</p>
+                <h3>10 Mondes</h3>
+                <p>De la prairie du nid au volcan en &eacute;ruption : jours, couchers de soleil et nuits &eacute;toil&eacute;es, une m&eacute;canique nouvelle &agrave; chaque niveau.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">&#x1F3B5;</div>
-                <h3>Musique Proc&eacute;durale</h3>
-                <p>Chaque saut cr&eacute;e une note. Ton parcours compose une m&eacute;lodie unique.</p>
+                <div class="feature-icon">&#x1F326;&#xFE0F;</div>
+                <h3>M&eacute;t&eacute;o &amp; Pi&egrave;ges</h3>
+                <p>Rafales, pluie battante, brouillard, temp&ecirc;te de sable, braises et rochers &mdash; et des nuages mouvants, rebondissants ou friables.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F3AF;</div>
+                <h3>Atterrissages Parfaits</h3>
+                <p>Vise le centre des nuages, encha&icirc;ne les PERFECTs, bats le chrono et d&eacute;croche les 3 &eacute;toiles de chaque niveau.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#x1F3C6;</div>
                 <h3>Classement Mondial</h3>
-                <p>Affronte les joueurs du monde entier via Google Play Games et grimpe au sommet !</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">&#x1F319;</div>
-                <h3>Jour &amp; Nuit</h3>
-                <p>Niveaux de jour, couchers de soleil et ambiances nocturnes avec &eacute;toiles scintillantes.</p>
+                <p>Affronte les joueurs du monde entier via Google Play Games, en g&eacute;n&eacute;ral ou entre amis &mdash; et collectionne 26 troph&eacute;es.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#x1F6AB;</div>
@@ -296,26 +305,26 @@
             <div class="level-chip" style="background: linear-gradient(135deg, #1a3a4a, #2d5a3d);">
                 &#x1F332; La For&ecirc;t <span>Nuit</span>
             </div>
-            <div class="level-chip" style="background: linear-gradient(135deg, #4a90d9, #f4a460);">
-                &#x1F30A; La Rivi&egrave;re <span>Coucher de soleil</span>
+            <div class="level-chip" style="background: linear-gradient(135deg, #f4a0b5, #e8788f);">
+                &#x1F338; Les Vergers <span>Aube &middot; nuages mouvants</span>
             </div>
             <div class="level-chip" style="background: linear-gradient(135deg, #2d2d4e, #4a3a6e);">
-                &#x1F3D4;&#xFE0F; La Montagne <span>Nuit</span>
+                &#x1F3D4;&#xFE0F; La Montagne <span>Neige &middot; brise</span>
             </div>
             <div class="level-chip" style="background: linear-gradient(135deg, #e8a735, #d4783a);">
-                &#x26A1; L'Orage <span>Coucher de soleil</span>
+                &#x26A1; L'Orage <span>Pluie &middot; vent fort</span>
             </div>
             <div class="level-chip" style="background: linear-gradient(135deg, #3a6b5e, #1a3a2a);">
-                &#x1F343; Les Marais <span>Nuit</span>
+                &#x1F343; Les Marais <span>Brouillard</span>
             </div>
             <div class="level-chip" style="background: linear-gradient(135deg, #c2b280, #e8a735);">
-                &#x1F3DC;&#xFE0F; Le D&eacute;sert <span>Coucher de soleil</span>
+                &#x1F3DC;&#xFE0F; Le D&eacute;sert <span>Temp&ecirc;te de sable</span>
             </div>
             <div class="level-chip" style="background: linear-gradient(135deg, #1a2a4a, #0d3a6a);">
-                &#x1F30A; La Mer <span>Nuit</span>
+                &#x1F30A; La Mer <span>Nuit &middot; houle</span>
             </div>
             <div class="level-chip" style="background: linear-gradient(135deg, #cc4422, #ff6b35);">
-                &#x1F30B; Le Volcan <span>Coucher de soleil</span>
+                &#x1F30B; Le Volcan <span>Braises &middot; rochers</span>
             </div>
             <div class="level-chip" style="background: linear-gradient(135deg, #ffd700, #ff8c00);">
                 &#x1F3E0; Le Retour <span>Finale</span>
@@ -331,11 +340,11 @@
                 <h3>Gratuit</h3>
                 <div class="pricing-price">0&euro; <small>pour toujours</small></div>
                 <ul class="pricing-list">
-                    <li>Niveau 1 &mdash; Les Nuages</li>
-                    <li>Musique proc&eacute;durale</li>
+                    <li>Niveau 1 &mdash; Le Nid</li>
+                    <li>Mode Infini (d&eacute;couverte)</li>
                     <li>Classement mondial</li>
-                    <li class="disabled">Mode Infini complet</li>
                     <li class="disabled">Niveaux 2 &agrave; 10</li>
+                    <li class="disabled">Mode Infini sans limites</li>
                 </ul>
             </div>
             <div class="pricing-card premium">
@@ -343,9 +352,9 @@
                 <h3>Jeu Complet</h3>
                 <div class="pricing-price">2,99&euro; <small>achat unique</small></div>
                 <ul class="pricing-list">
-                    <li>Les 10 niveaux</li>
+                    <li>Les 10 niveaux du Voyage</li>
                     <li>Mode Infini sans limites</li>
-                    <li>Musique proc&eacute;durale</li>
+                    <li>26 troph&eacute;es &agrave; collectionner</li>
                     <li>Classement mondial</li>
                     <li>Aucune pub, jamais</li>
                 </ul>
@@ -359,7 +368,8 @@
             <a href="privacy.html">Politique de confidentialit&eacute;</a>
             <a href="mailto:californylana@gmail.com">Contact</a>
         </div>
-        <p>&copy; 2026 Jumpy Bird. Tous droits r&eacute;serv&eacute;s.</p>
+        <p>Disponible en 8 langues &middot; Fran&ccedil;ais, English, Espa&ntilde;ol, Portugu&ecirc;s, Italiano, Deutsch, &#x4E2D;&#x6587;, &#x65E5;&#x672C;&#x8A9E;</p>
+        <p style="margin-top: 8px;">&copy; 2026 Jumpy Bird. Tous droits r&eacute;serv&eacute;s.</p>
     </footer>
 
 </body>
